@@ -1,4 +1,0 @@
-selenium
-bs4 : beautiful soup 4 -> good for extracting html content
-webdriver_manager: pip install webdriver-manager
-lxml - > pip install lxml
