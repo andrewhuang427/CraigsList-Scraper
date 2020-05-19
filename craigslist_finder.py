@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 
 from bs4 import BeautifulSoup
-import urllib.request  # allows opening of website
+import urllib.request  
 
 # URL Format: https://philadelphia.craigslist.org/search/sss?query=barbell&sort=rel&search_distance=20&postal=19426&min_price=0&max_price=150
 
@@ -36,7 +36,7 @@ class craigslist_scrapper(object):
 
     def extractPostInfo(self):
         # driver.find_element_by_... can be used to find various elements on webpage (see documentation for more info)
-        # Link... https://selenium-python.readthedocs.io/locating-elements.html
+        # Documentation: https://selenium-python.readthedocs.io/locating-elements.html
         all_post = self.driver.find_elements_by_class_name('result-row')
         titles = []
         prices = []
@@ -67,9 +67,8 @@ class craigslist_scrapper(object):
         url_list = []
         html_page = urllib.request.urlopen(self.url)
         soup = BeautifulSoup(html_page, 'lxml')
-        # 'a' is used to specifiy links
+        # 'a' is used to specifiy link
         for link in soup.findAll('a', {'class': 'result-title hdrlnk'}):
-            #print(link['href'])
             url_list.append(link['href'])
         return url_list
 
